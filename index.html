@@ -3,214 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APEC Student Portal Login</title>
+    <title>Adhiparasakthi Engineering College Project</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .login-container {
-            background-color: #ffffff;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            width: 100%;
-            max-width: 400px;
+            font-family: Arial, sans-serif;
             text-align: center;
-            border-top: 5px solid #bd2026; /* APEC theme red */
+            background-color: #f9f9f9;
+            padding: 50px;
         }
-
-        .logo-container {
-            margin-bottom: 1.5rem;
-        }
-
-        .college-logo {
-            width: 100px;
+        img {
+            max-width: 250px;
             height: auto;
-            object-fit: contain;
-        }
-
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-size: 1.6rem;
-        }
-
-        h3 {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .input-group {
-            margin-bottom: 1.25rem;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #34495e;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: #bd2026;
-        }
-
-        .login-btn {
-            background-color: #bd2026;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 0.75rem;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 0.5rem;
-        }
-
-        .login-btn:hover {
-            background-color: #96161a;
-        }
-
-        .footer-text {
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
-            color: #95a5a6;
-        }
-
-        /* Modal / Pop-up Styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-box {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            max-width: 320px;
-            width: 90%;
-        }
-
-        .modal-box h4 {
-            color: #27ae60;
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-box p {
-            color: #333;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .close-btn {
-            background-color: #34495e;
-            color: white;
-            border: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .close-btn:hover {
-            background-color: #2c3e50;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <div class="logo-container">
-            <!-- Official College Logo Placeholder -->
-            <img class="college-logo" src="https://apec.edu.in" alt="Adhiparasakthi Engineering College Logo" onerror="this.src='https://placehold.co'">
-        </div>
-        
-        <h2>Adhiparasakthi</h2>
-        <h3>Engineering College</h3>
-        
-        <form id="loginForm" onsubmit="handleLogin(event)">
-            <div class="input-group">
-                <label for="username">Register Number / Username</label>
-                <input type="text" id="username" placeholder="Enter your username" required>
-            </div>
-            
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
-            </div>
-            
-            <button type="submit" class="login-btn">Sign In</button>
-        </form>
-        
-        <p class="footer-text">© Student Portal - Melmaruvathur</p>
-    </div>
-
-    <!-- The Success Pop-up Modal -->
-    <div class="modal-overlay" id="successModal">
-        <div class="modal-box">
-            <h4>Success!</h4>
-            <p>You have successfully logged into the APEC portal.</p>
-            <button class="close-btn" onclick="closeModal()">Close</button>
-        </div>
-    </div>
-
-    <script>
-        function handleLogin(event) {
-            // Stop the form from reloading the page
-            event.preventDefault(); 
-            
-            // Show the custom confirmation popup
-            document.getElementById('successModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            // Hide the popup
-            document.getElementById('successModal').style.display = 'none';
-            // Clear inputs
-            document.getElementById('loginForm').reset();
-        }
-    </script>
+    <!-- This tag will display the logo on your live page -->
+    <img src="logo.png" alt="Adhiparasakthi Engineering College Logo">
+    
+    <h1>Welcome to APEC Project Portal</h1>
+    <p>Study | Spirituality | Service</p>
 
 </body>
 </html>
+
+        
